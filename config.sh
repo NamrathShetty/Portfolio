@@ -1,0 +1,2 @@
+PROJECT_NAME=Portfolio
+HIDE_LOGO=true
