@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install Nix
+      run: curl -L https://nixos.org/nix/install | sh
+
+    - name: Set up Nix
+      shell: bash
+      run: |
+        . /home/runner/.nix-profile/etc/profile.d/nix.sh
+
+    - name: Enter Nix shell and run script
+      shell: bash
+      run: |
+        nix-shell --run "echo 'Running script in Nix environment'"
+        nix-shell --run "/app/start.sh"
