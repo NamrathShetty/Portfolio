@@ -1,31 +1,33 @@
-name: CI
+name: on the runner. To resolve this issue, you need CI
 
-on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
+on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    to ensure `nix-shell` is available in the runner environment. You can do this by installing Nix in your GitHub Actions workflow.
+
+Here is an example of runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v how you can modify your workflow file (`.github/workflows2
 
     - name: Install Nix
-      run: curl -L https://nixos.org/nix/install | sh
-
-    - name: Set up Nix
-      shell: bash
       run: |
-        . /home/runner/.nix-profile/etc/profile.d/nix.sh
+        curl -/ci.yml`) to install Nix:
 
-    - name: Enter Nix shell and run script
-      shell: bash
-      run: |
-        nix-shell --run "echo 'Running script in Nix environment'"
-        nix-shell --run "/app/start.sh"
+```yaml
+name: CIL https://nixos.org/nix/install | sh
+        . ~/.n
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-onix-profile/etc/profile.d/nix.sh
+
+    - name: Run nix-shell: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      run: nix-shell --run "/app/start.sh"
