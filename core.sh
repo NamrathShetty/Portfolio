@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 VERSION=v0.6.0
 
 declare -A HTTP_HEADERS
