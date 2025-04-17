@@ -28,12 +28,12 @@ jobs:
 
     - name: Print Logs
       run: |
-        sleep 25
+        sleep 35
         cat app.log
 
     - name: Wait for the application to start
       run: |
-        sleep 25
+        sleep 35
     
     - name: Check if the application is running
       run: |
