@@ -25,3 +25,11 @@ jobs:
         . /home/runner/.nix-profile/etc/profile.d/nix.sh
         set -u
         nix-shell default.nix
+
+    - name: Wait for the application to start
+      run: |
+        sleep 10
+    
+    - name: Check if the application is running
+      run: |
+        curl -f http://localhost:3000
