@@ -67,8 +67,14 @@ jobs:
     - name: Debug Deployment
       run: ls -la
            
-    - name: Set up GitHub Pages
-      run: chmod +x ./github-pages
+    - name: Ensure Artifact is a Directory
+      run: |
+        if [ ! -d "./github-pages" ]; then
+          mkdir github-pages-extracted
+          tar -xvf ./github-pages -C github-pages-extracted
+          mv github-pages-extracted github-pages
+        fi
+        ls -la ./github-pages
 
     - name: Debug Deployment
       run: |
