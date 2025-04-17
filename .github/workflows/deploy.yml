@@ -19,7 +19,7 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Use nix-shell-action to build
-      uses: cachix/nix-shell-action@v20
+      uses: cachix/nix-shell-action@v16
       with:
         nix_file: default.nix
         run: |
