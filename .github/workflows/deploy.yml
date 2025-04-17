@@ -16,7 +16,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Install Cachix and Nix
       uses: cachix/install-nix-action@v20
@@ -28,10 +28,10 @@ jobs:
         nix-build default.nix
 
     - name: Configure GitHub Pages
-      uses: actions/configure-pages@v3
+      uses: actions/configure-pages@v4
 
     - name: Upload artifact to GitHub Pages
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: github-pages
         path: ./result
@@ -45,4 +45,4 @@ jobs:
 
     steps:
     - name: Deploy to GitHub Pages
-      uses: actions/deploy-pages@v1
+      uses: actions/deploy-pages@v4
