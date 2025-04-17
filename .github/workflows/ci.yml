@@ -24,11 +24,11 @@ jobs:
         set +u
         . /home/runner/.nix-profile/etc/profile.d/nix.sh
         set -u
-        nix-shell default.nix &
+        nix-shell default.nix > app.log 2>&1 &
 
     - name: Wait for the application to start
       run: |
-        sleep 225
+        sleep 25
     
     - name: Check if the application is running
       run: |
