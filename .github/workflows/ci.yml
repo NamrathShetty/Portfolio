@@ -22,4 +22,4 @@ jobs:
     - name: Run nix-shell
       run: |
         . /home/runner/.nix-profile/etc/profile.d/nix.sh
-        nix-shell --run "/start.sh"
+        nix-shell --run "./start.sh"
