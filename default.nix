@@ -10,8 +10,11 @@ pkgs.mkShell {
 
   shellHook = ''
     export DEV=false
-    EXPOSE 3000
-    cp -r . /app
-    /app/start.sh
+    export PORT=3000
+    echo "Port $PORT is exposed"
+    mkdir -p $HOME/app
+    cp -r . $HOME/app
+    chmod +x $HOME/app/start.sh
+    $HOME/app/start.sh
   '';
 }

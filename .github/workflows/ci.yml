@@ -21,5 +21,7 @@ jobs:
 
     - name: Run nix-shell
       run: |
+        set +u
         . /home/runner/.nix-profile/etc/profile.d/nix.sh
-        nix-shell --run "./start.sh"
+        set -u
+        nix-shell default.nix
