@@ -33,7 +33,7 @@ jobs:
         enablement: true
     
     - name: Debug Deployment
-      run: ls -la ./result
+      run: ls -la
 
     - name: Upload artifact to GitHub Pages
       uses: actions/upload-artifact@v4
