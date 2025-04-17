@@ -26,6 +26,10 @@ jobs:
         set -u
         nix-shell default.nix > app.log 2>&1 &
 
+    - name: Print Logs
+      run: |
+        cat app.log
+
     - name: Wait for the application to start
       run: |
         sleep 25
