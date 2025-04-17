@@ -37,7 +37,12 @@ jobs:
 
     - name: Rename Artifact Directory
       run: |
+        # Move the result symlink to a regular directory
         mv ./result ./github-pages
+        # Resolve the symlink into a regular directory
+        cp -r ./github-pages ./github-pages-resolved
+        mv ./github-pages-resolved ./github-pages
+        # Confirm the contents of the directory
         ls -la ./github-pages
 
     - name: Upload artifact to GitHub Pages
