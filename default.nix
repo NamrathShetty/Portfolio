@@ -4,7 +4,7 @@ pkgs.mkShell {
   name = "portfolio-env";
 
   buildInputs = [
-    pkgs.ubuntu
+    # pkgs.ubuntuMinimal
     pkgs.ucspi-tcp
   ];
 
