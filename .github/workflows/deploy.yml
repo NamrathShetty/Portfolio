@@ -73,7 +73,7 @@ jobs:
     - name: Debug Deployment
       run: |
         echo "Contents of github-pages directory:"
-        ls -R ./github-pages
+        cat ./github-pages
 
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v4
