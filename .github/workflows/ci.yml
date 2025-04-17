@@ -18,10 +18,6 @@ jobs:
       run: |
         . /home/runner/.nix-profile/etc/profile.d/nix.sh
 
-    - name: nix-shell version
-      run: |
-        nix-shell --version
-        
     - name: Run nix-shell
       run: |
         nix-shell --run "/app/start.sh"
