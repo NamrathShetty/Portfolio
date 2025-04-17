@@ -38,8 +38,8 @@ jobs:
     - name: Upload artifact to GitHub Pages
       uses: actions/upload-artifact@v4
       with:
-        name: result
-        path: ./result
+        name: github-pages
+        path: ./github-pages
 
   deploy:
     runs-on: ubuntu-latest
@@ -52,7 +52,7 @@ jobs:
     - name: Download Build Artifact
       uses: actions/download-artifact@v4
       with:
-        name: result
+        name: github-pages
 
     - name: Debug Deployment
       run: ls -la
