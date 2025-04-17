@@ -50,3 +50,6 @@ jobs:
       uses: actions/deploy-pages@v4
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Debug Deployment
+      run: ls -la ./result
