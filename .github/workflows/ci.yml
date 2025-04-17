@@ -24,7 +24,7 @@ jobs:
         set +u
         . /home/runner/.nix-profile/etc/profile.d/nix.sh
         set -u
-        nix-shell default.nix
+        nix-shell default.nix &
 
     - name: Wait for the application to start
       run: |
