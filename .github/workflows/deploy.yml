@@ -61,6 +61,7 @@ jobs:
 
     - name: Debug Deployment
       run: ls -la
+           chmod +x ./github-pages
 
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v4
