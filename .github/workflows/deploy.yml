@@ -35,6 +35,11 @@ jobs:
     - name: Debug Deployment
       run: ls -la
 
+    - name: Rename Artifact Directory
+      run: |
+        mv ./result ./github-pages
+        ls -la ./github-pages
+
     - name: Upload artifact to GitHub Pages
       uses: actions/upload-artifact@v4
       with:
