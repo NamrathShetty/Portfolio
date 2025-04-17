@@ -13,7 +13,11 @@ jobs:
     - name: Install Nix
       run: |
         curl -L https://nixos.org/nix/install | sh
+
+    - name: nix-shell Check
+      run: |
         . /home/runner/.nix-profile/etc/profile.d/nix.sh
         
     - name: Run nix-shell
-      run: nix-shell --run "/app/start.sh"
+      run: |
+        nix-shell --run "/app/start.sh"
