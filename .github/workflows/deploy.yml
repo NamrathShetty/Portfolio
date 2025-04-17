@@ -18,12 +18,14 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Use nix-shell-action to build
-      uses: cachix/nix-shell-action@v16
+    - name: Install Cachix and Nix
+      uses: cachix/install-nix-action@v20
       with:
-        nix_file: default.nix
-        run: |
-          echo "Build completed"
+        nix_path: nixpkgs=channel:nixos-22.11
+
+    - name: Build the project using Nix
+      run: |
+        nix-build default.nix
 
     - name: Configure GitHub Pages
       uses: actions/configure-pages@v3
@@ -32,7 +34,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: github-pages
-        path: .
+        path: ./result
 
   deploy:
     runs-on: ubuntu-latest
