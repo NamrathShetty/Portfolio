@@ -28,6 +28,7 @@ jobs:
 
     - name: Print Logs
       run: |
+        sleep 25
         cat app.log
 
     - name: Wait for the application to start
@@ -36,4 +37,4 @@ jobs:
     
     - name: Check if the application is running
       run: |
-        curl -v http://localhost:3000
+        curl http://localhost:3000
