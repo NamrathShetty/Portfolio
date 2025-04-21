@@ -50,42 +50,45 @@ jobs:
       with:
         name: github-pages
         path: ./github-pages
-
-  deploy:
-    environment:
-      name: github-pages
-      url: https://NamrathShetty.github.io/Portfolio # Replace with your GitHub Pages URL
-    runs-on: ubuntu-latest
-    needs: build
-    permissions:
-      pages: write
-      id-token: write
-
-    steps:
-    - name: Download Build Artifact
-      uses: actions/download-artifact@v4
-      with:
-        name: github-pages
-
-    - name: Debug Deployment
-      run: ls -la
-           
-    - name: Ensure Artifact is a Directory
-      run: |
-        if [ ! -d "./github-pages" ]; then
-          mkdir github-pages-extracted
-          tar -xvf ./github-pages -C github-pages-extracted
-          mv github-pages-extracted github-pages
-        fi
-        ls -la ./github-pages
-
-    - name: Debug Deployment
-      run: |
-        echo "Contents of github-pages directory:"
-        cat ./github-pages
-
+    
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v4
-      with: 
-        debug: true
+
+  # deploy:
+  #   environment:
+  #     name: github-pages
+  #     url: https://NamrathShetty.github.io/Portfolio # Replace with your GitHub Pages URL
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   permissions:
+  #     pages: write
+  #     id-token: write
+
+  #   steps:
+  #   - name: Download Build Artifact
+  #     uses: actions/download-artifact@v4
+  #     with:
+  #       name: github-pages
+
+  #   - name: Debug Deployment
+  #     run: ls -la
+           
+  #   - name: Ensure Artifact is a Directory
+  #     run: |
+  #       if [ ! -d "./github-pages" ]; then
+  #         mkdir github-pages-extracted
+  #         tar -xvf ./github-pages -C github-pages-extracted
+  #         mv github-pages-extracted github-pages
+  #       fi
+  #       ls -la ./github-pages
+
+  #   - name: Debug Deployment
+  #     run: |
+  #       echo "Contents of github-pages directory:"
+  #       cat ./github-pages
+
+  #   - name: Deploy to GitHub Pages
+  #     uses: actions/deploy-pages@v4
+  #     with: 
+  #       debug: true
 
