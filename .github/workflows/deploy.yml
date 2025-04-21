@@ -27,6 +27,30 @@ jobs:
       run: |
         nix-build default.nix
 
+  deploy:
+    environment:
+      name: github-pages
+      url: https://NamrathShetty.github.io/Portfolio
+
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Install Cachix and Nix
+      uses: cachix/install-nix-action@v20
+      with:
+        nix_path: nixpkgs=channel:nixos-22.11
+
+    - name: Build the project using Nix
+      run: |
+        nix-build default.nix
+
     - name: Configure GitHub Pages
       uses: actions/configure-pages@v4
       with:
